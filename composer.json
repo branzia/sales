@@ -1,0 +1,40 @@
+{
+  "name": "branzia/shop",
+  "description": "Branzia Shop Package for Laravel",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+      "php": "^8.2",
+      "filament/filament": "3.3",
+      "branzia/blueprint": "@dev",
+      "branzia/hookable": "@dev",
+      "branzia/admin": "@dev",
+      "branzia/tax": "@dev",      
+      "branzia/catalog": "@dev",      
+      "branzia/customer": "@dev",
+      "branzia/payment": "@dev",
+      "branzia/shipping": "@dev"      
+  },
+  "authors": [
+        {
+            "name": "Visvanathan",
+            "email": "visvanathan.tech@gmail.com"
+        }
+    ],
+  "minimum-stability": "dev",  
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Branzia\\Shop\\": "src/"
+    }
+  },
+  "extra": {
+      "laravel": {
+          "providers": [
+              "Branzia\\Shop\\ShopServiceProvider"
+          ],
+          "aliases": {}
+      }
+  }
+
+}
