@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quote_shipping_methods', function (Blueprint $table) {
+        Schema::create('sales_order_payment_methods', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id')->constrained('sales_orders')->onDelete('cascade');
+            $table->string('method_code'); // stripe, cod, etc.
+            $table->string('label');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quote_shipping_methods');
+        Schema::dropIfExists('sales_order_payment_methods');
     }
 };

@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quote_shipping_methods', function (Blueprint $table) {
+        Schema::create('sales_order_states', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique(); // e.g., 'processing'
+            $table->string('label');          // e.g., 'Processing'
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quote_shipping_methods');
+        Schema::dropIfExists('sales_order_states');
     }
 };

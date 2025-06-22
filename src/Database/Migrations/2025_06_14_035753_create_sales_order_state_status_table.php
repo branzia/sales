@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_state_status', function (Blueprint $table) {
+        Schema::create('sales_order_state_status', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('state_id')->constrained('order_states')->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('order_statuses')->onDelete('cascade');
+            $table->foreignId('state_id')->constrained('sales_order_states')->onDelete('cascade');
+            $table->foreignId('status_id')->constrained('sales_order_statuses')->onDelete('cascade');
             $table->boolean('is_default')->default(false); // is this the default status for this state?
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_state_status');
+        Schema::dropIfExists('sales_order_state_status');
     }
 };

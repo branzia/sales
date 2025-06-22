@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_items', function (Blueprint $table) {
+        Schema::create('sales_order_statuses', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();  // e.g., 'awaiting_shipment'
+            $table->string('label');           // e.g., 'Awaiting Shipment'
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_items');
+        Schema::dropIfExists('sales_order_statuses');
     }
 };

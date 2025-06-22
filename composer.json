@@ -1,6 +1,6 @@
 {
-  "name": "branzia/shop",
-  "description": "Branzia Shop Package for Laravel",
+  "name": "branzia/sales",
+  "description": "Branzia Sales Package for Laravel",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -25,13 +25,13 @@
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "Branzia\\Shop\\": "src/"
+      "Branzia\\Sales\\": "src/"
     }
   },
   "extra": {
       "laravel": {
           "providers": [
-              "Branzia\\Shop\\ShopServiceProvider"
+              "Branzia\\Sales\\SalesServiceProvider"
           ],
           "aliases": {}
       }

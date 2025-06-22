@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_payment_methods', function (Blueprint $table) {
+        Schema::create('sales_order_shipping_methods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            $table->string('method_code'); // stripe, cod, etc.
+            $table->foreignId('order_id')->constrained('sales_orders')->onDelete('cascade');
+            $table->string('carrier_code'); // fedex, dhl, local
+            $table->string('method_code');  // express, cod, etc.
             $table->string('label');
+            $table->decimal('price', 12, 2);
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_payment_methods');
+        Schema::dropIfExists('sales_order_shipping_methods');
     }
 };
